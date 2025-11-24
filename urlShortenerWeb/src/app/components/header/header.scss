@@ -1,0 +1,14 @@
+.headerTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+header {
+  padding: 3rem 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 750px;
+}

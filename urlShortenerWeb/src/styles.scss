@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-color: #fafafa;
+  --title-color: #000000;
+  --text-color: #5c5c5c;
+  --spacing-unit: 1rem;
+  --container-width: 800px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, monospace;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.8;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
