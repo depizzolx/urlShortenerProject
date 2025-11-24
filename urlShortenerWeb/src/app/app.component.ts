@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { HeaderComponent } from './components/header/header';
 import { HeroComponent } from './components/hero/hero'
+import { Response } from "./components/response/response";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { HeroComponent } from './components/hero/hero'
     RouterOutlet,
     CommonModule,
     HeaderComponent,
-    HeroComponent
+    HeroComponent,
+    Response
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

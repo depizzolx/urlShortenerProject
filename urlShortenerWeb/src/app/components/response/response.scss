@@ -1,0 +1,15 @@
+.responseText {
+    color: var(--text-color );
+}
+#url {
+    font-family: Inter, monospace;
+    width: 25%;
+    height: 3.5vh;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0.5rem;
+
+    &:focus {
+        outline: none;
+    }
+}
