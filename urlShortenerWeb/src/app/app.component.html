@@ -1,6 +1,6 @@
 <div class="container">
     <app-header></app-header>
-    <app-hero></app-hero>
-    <app-response></app-response>
+    <app-hero (shorten)="onShorten($event)" [isLoading] = isLoading></app-hero>
+    <app-response [shortenedUrl]="shortenedUrl" [errorMessage]="errorMessage"></app-response>
     <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,5 @@
+<section class="responseSection" *ngIf="shortenedUrl || errorMessage">
+    <p class="responseText" *ngIf="!errorMessage">Your shorter URL is here:</p>
+    <input type="text" id="url" name="url" [value]="shortenedUrl" *ngIf="!errorMessage" readonly />
+    <p class="errorText" *ngIf="errorMessage">{{ errorMessage }}</p>
+</section>

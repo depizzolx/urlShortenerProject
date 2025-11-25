@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-body',
+  selector: 'app-header',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './body.html',
-  styleUrl: './body.scss'
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss'
 })
-export class BodyComponent {
+
+export class HeaderComponent {
 
 }

@@ -3,6 +3,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "UrlShortenerApiApplication",
+      "request": "launch",
+      "mainClass": "com.github.depizzolx.shortener.UrlShortenerApiApplication",
+      "projectName": "url-shortener-api"
+    },
+    {
       "name": "ng serve",
       "type": "chrome",
       "request": "launch",
