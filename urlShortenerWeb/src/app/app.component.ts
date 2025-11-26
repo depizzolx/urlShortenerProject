@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
@@ -19,21 +19,26 @@ export class AppComponent {
   errorMessage: string | null = null;
   isLoading: boolean = false;
 
-  constructor(private urlShortener: UrlShortener) {}
+  constructor(private urlShortener: UrlShortener, private cdr: ChangeDetectorRef) {}
 
   onShorten(originalUrl: string) {
     this.isLoading = true;
     this.errorMessage = null;
+    this.shortenedUrl = null;
     this.urlShortener.shortenUrl(originalUrl).subscribe({
       next: (response: ShortenResponse) => {
-        this.shortenedUrl = response.url;
+        console.log('Received response:', response);
+        // Constrói a URL completa usando o domínio atual
+        this.shortenedUrl = `${window.location.origin}/${response.code}`;
         this.isLoading = false;
+        this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('Error shortening URL:', error);
         this.errorMessage = 'Failed to shorten URL. Please try again.';
         this.shortenedUrl = null;
         this.isLoading = false;
+        this.cdr.detectChanges();
       }
     });
   }

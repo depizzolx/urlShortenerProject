@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss'
+  styleUrl: './hero.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroComponent {
   url: string = '';
@@ -15,9 +16,10 @@ export class HeroComponent {
 
   @Input() isLoading: boolean = false;
 
-  onSubmit() {
-    if (this.url) {
-      this.shorten.emit(this.url);
+  onSubmit(inputValue: string) {
+    console.log('HeroComponent onSubmit, inputValue:', inputValue);
+    if (inputValue) {
+      this.shorten.emit(inputValue);
     }
   }
 }

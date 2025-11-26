@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.github.depizzolx.shortener.UrlResponse;
 import com.github.depizzolx.shortener.UrlService;
-import jakarta.servlet.http.HttpServletRequest;
 import com.github.depizzolx.shortener.UrlRequest;
 import java.net.URI;
 
@@ -21,12 +20,11 @@ public class UrlController {
     }
 
     @PostMapping
-    public ResponseEntity<UrlResponse> shortenUrl(@RequestBody UrlRequest request, HttpServletRequest servletRequest) {
+    public ResponseEntity<UrlResponse> shortenUrl(@RequestBody UrlRequest request) {
 
         String shortCode = urlService.shortenUrl(request.url());
-        String redirectUrl = servletRequest.getRequestURL().toString().replace("/api/urls", "") + "/" + shortCode;
-
-        return ResponseEntity.ok(new UrlResponse(redirectUrl, shortCode));
+        // Retorna apenas o código - o frontend constrói a URL completa
+        return ResponseEntity.ok(new UrlResponse(shortCode, shortCode));
     }
 
     @GetMapping("/{code}")
